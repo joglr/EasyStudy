@@ -21,3 +21,7 @@ tensorflow-recommenders==0.7.3
 python3-discogs-client==2.6
 Werkzeug==3.0.0
 pytest
+tensorflow
+
+torch
+elsarec

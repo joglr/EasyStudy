@@ -23,10 +23,10 @@
     <!-- Required scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js"></script>
 
-    
+
     <!-- Load polyfills to support older browsers -->
     <script src="https://unpkg.com/babel-polyfill@6.26.0/dist/polyfill.min.js"></script>
-    
+
     <!-- Required scripts -->
     <script src="https://unpkg.com/bootstrap-vue@2.22.0/dist/bootstrap-vue.js"></script>
     <script src="https://unpkg.com/bootstrap-vue@2.22.0/dist/bootstrap-vue-icons.js"></script> <!-- Needed just for the Icons -->
@@ -38,7 +38,7 @@
     <div id="app">
       <b-container align-h="center" fluid>
         <b-jumbotron header="fastcompare Create" lead="Create user study">
-          Select parameters and create user study. Note that after clicking on Create, user study will be deactivate (see its state in administration) until initialization is finished (depends on the configuration, may take seconds or minutes if training more complex algorithms).    
+          Select parameters and create user study. Note that after clicking on Create, user study will be deactivate (see its state in administration) until initialization is finished (depends on the configuration, may take seconds or minutes if training more complex algorithms).
         </b-jumbotron>
 
 
@@ -111,7 +111,7 @@
           </b-row>
           <b-row align-v="center" align-h="center" class="mb-3">
             <b-col cols="8" class="text-center" align-h="center">
-              <b-card v-if="preferenceElicitation!= null && Object.keys(preferenceElicitationsParameters[preferenceElicitationNames.indexOf(preferenceElicitation)]).length" :title="preferenceElicitation" sub-title="{{settings}}" :set="elicitationIdx = preferenceElicitationNames.indexOf(preferenceElicitation)">                
+              <b-card v-if="preferenceElicitation!= null && Object.keys(preferenceElicitationsParameters[preferenceElicitationNames.indexOf(preferenceElicitation)]).length" :title="preferenceElicitation" sub-title="{{settings}}" :set="elicitationIdx = preferenceElicitationNames.indexOf(preferenceElicitation)">
                 <b-card-body>
                   <template>
                     <b-row align-v="center" v-for="parameter in preferenceElicitationData[elicitationIdx]['parameters']" :key="parameter.name">
@@ -295,7 +295,7 @@
                   Some quick example text to build on the <em>card title</em> and make up the bulk of the card's
                   content.
                 </b-card-text> -->
-            
+
                 <!-- <b-card-text>A second paragraph of text in the card.</b-card-text> -->
                 <b-card-body>
                   <template>
@@ -548,11 +548,11 @@
             },
             async onCreateUserStudy() {
                 let pluginName = "{{plugin_name}}";
-                
+
                 if (!this.allValidated()) {
                   return;
                 }
-                
+
                 let algorithmsParameters = [];
                 for (let i = 0; i < this.numAlgorithms; ++i) {
                   let name = this.selectedAlgorithms[i];
@@ -627,7 +627,7 @@
                     }
                 });
             },
-            
+
             cancelCreateUserStudy() {
                 window.location.href = "{{ url_for('main.administration') }}"
             },
@@ -690,7 +690,7 @@
             this.preferenceElicitationsParameters.push(d);
           }
 
-          
+
           // TODO reuse above steps
           this.dataLoaderData = await fetch("{{ url_for('fastcompare.available_data_loaders') }}").then(resp => resp.json());
           this.dataLoaders = this.dataLoaders.concat(this.dataLoaderData.map(x => {

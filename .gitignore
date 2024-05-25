@@ -10,3 +10,6 @@ server/instance/
 *.sqlite
 img
 cache
+.venv
+server/data
+get-pip.py
